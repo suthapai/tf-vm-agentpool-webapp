@@ -15,7 +15,6 @@ steps:
   inputs:
     terraformVersion: 'latest'  
 - task: TerraformTaskV4@4
-  displayName: terraform init
   inputs:
     provider: 'azurerm'
     command: 'init'
@@ -24,9 +23,3 @@ steps:
     backendAzureRmStorageAccountName: 'sgtfstatefile'
     backendAzureRmContainerName: 'mytfstate'
     backendAzureRmKey: 'terraform.tfstate'
-- task: TerraformTaskV4@4
-  displayName: terraform plan
-  inputs:
-    provider: 'azurerm'
-    command: 'plan'
-    environmentServiceNameAzureRM: 'Azureportal-devops-sc'
