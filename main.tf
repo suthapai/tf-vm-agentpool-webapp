@@ -76,12 +76,12 @@ resource "azurerm_linux_virtual_machine" "main" {
   location            = azurerm_resource_group.rg-grp.location
   size                = var.vm_size
   admin_username      = var.admin_username
-  admin_password                  = var.admin_password
+  admin_password      = var.admin_password
   disable_password_authentication = false
   network_interface_ids = [azurerm_network_interface.nic-cd.id]
 
   admin_ssh_key {
-    username   = "adminuser"
+    username   = var.admin_username
     public_key = file("~/.ssh/id_rsa.pub")
   }
 
